@@ -2,7 +2,10 @@
 //* to access variable SESSION we need to:
 session_start();
 
-$_SESSION;
+include("connection.php");
+include("functions.php");
+//* check if the users is logged in
+$user_data = check_login($con);
 
 
 ?>
@@ -22,7 +25,7 @@ $_SESSION;
     <h1>This is the index page</h1>
 
     <br><br>
-    Hello, Username
+    Hello, <?php echo $user_data['user_name']; ?>
 </body>
 
 </html>
